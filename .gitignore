@@ -1,1 +1,7 @@
 node_modules
+.vscode
+.DS_STORE
+.module-cache
+*.log*
+build
+dist
