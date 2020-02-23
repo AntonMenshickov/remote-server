@@ -7,7 +7,7 @@ const {
 // variables
 const isProduction =
     process.argv.indexOf('-p') >= 0 || NODE_ENV === 'production';
-const nodemon = process.argv.indexOf('-nd') >= 0;
+// const nodemon = process.argv.indexOf('-nd') >= 0;
 const outPath = path.join(__dirname, './build');
 
 const nodeExternals = require('webpack-node-externals');
@@ -38,11 +38,11 @@ const backend = {
     },
     externals: [nodeExternals()],
     watch: !isProduction,
-    plugins: nodemon ? [
+    plugins: [
         new WebpackShellPlugin({
-            onBuildEnd: ['npm run run:dev']
+            onBuildEnd: ['npm run electron:start']
         })
-    ] : []
+    ]
 };
 
 
