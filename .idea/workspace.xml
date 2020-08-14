@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2a833ad6-e94d-48ff-8051-52a1293571a9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/backend/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="C:\Users\anton\IdeaProjects\electron-quick-start\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1YC1TLDDlsGf4FIp7fVImhTzrw5" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="sortByType" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+    <property name="ts.external.directory.path" value="C:\Users\anton\IdeaProjects\remote-server\node_modules\typescript\lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\anton\IdeaProjects\electron-quick-start" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.dev">
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.dev" />
+        <item itemvalue="npm.start" />
+        <item itemvalue="npm.build" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2a833ad6-e94d-48ff-8051-52a1293571a9" name="Default Changelist" comment="" />
+      <created>1582431768950</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1582431768950</updated>
+      <workItem from="1582431772092" duration="64000" />
+      <workItem from="1582431952784" duration="2843000" />
+      <workItem from="1582468575706" duration="829000" />
+      <workItem from="1582469432191" duration="1240000" />
+      <workItem from="1586687356460" duration="122000" />
+      <workItem from="1587113295583" duration="772000" />
+      <workItem from="1587134123731" duration="615000" />
+    </task>
+    <task id="LOCAL-00001" summary="init">
+      <created>1582469615092</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1582469615092</updated>
+    </task>
+    <task id="LOCAL-00002" summary="init">
+      <created>1582470329718</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1582470329718</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init" />
+    <option name="LAST_COMMIT_MESSAGE" value="init" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="574" y="159" key="#buildexe" timestamp="1582469808504">
+      <screen x="0" y="0" width="1707" height="920" />
+    </state>
+    <state x="574" y="159" key="#buildexe/0.0.1707.920@0.0.1707.920" timestamp="1582469808504" />
+    <state x="309" y="115" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582469790113">
+      <screen x="0" y="0" width="1707" height="920" />
+    </state>
+    <state x="309" y="115" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1707.920@0.0.1707.920" timestamp="1582469790113" />
+    <state x="466" y="55" key="CommitChangelistDialog2" timestamp="1582470328821">
+      <screen x="0" y="0" width="1707" height="920" />
+    </state>
+    <state x="466" y="55" key="CommitChangelistDialog2/0.0.1707.920@0.0.1707.920" timestamp="1582470328821" />
+    <state width="1479" height="304" key="GridCell.Tab.0.bottom" timestamp="1587269148503">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="1240" height="242" key="GridCell.Tab.0.bottom/0.0.1707.920@0.0.1707.920" timestamp="1582470672884" />
+    <state width="1479" height="304" key="GridCell.Tab.0.bottom/0.0.2048.1112@0.0.2048.1112" timestamp="1587269148503" />
+    <state width="1479" height="304" key="GridCell.Tab.0.center" timestamp="1587269148503">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="1240" height="242" key="GridCell.Tab.0.center/0.0.1707.920@0.0.1707.920" timestamp="1582470672884" />
+    <state width="1479" height="304" key="GridCell.Tab.0.center/0.0.2048.1112@0.0.2048.1112" timestamp="1587269148503" />
+    <state width="1479" height="304" key="GridCell.Tab.0.left" timestamp="1587269148502">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="1240" height="242" key="GridCell.Tab.0.left/0.0.1707.920@0.0.1707.920" timestamp="1582470672884" />
+    <state width="1479" height="304" key="GridCell.Tab.0.left/0.0.2048.1112@0.0.2048.1112" timestamp="1587269148502" />
+    <state width="1479" height="304" key="GridCell.Tab.0.right" timestamp="1587269148503">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="1240" height="242" key="GridCell.Tab.0.right/0.0.1707.920@0.0.1707.920" timestamp="1582470672884" />
+    <state width="1479" height="304" key="GridCell.Tab.0.right/0.0.2048.1112@0.0.2048.1112" timestamp="1587269148503" />
+    <state x="695" y="255" width="660" height="602" key="NewModule_or_Project.wizard" timestamp="1587114064816">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="695" y="255" width="660" height="602" key="NewModule_or_Project.wizard/0.0.2048.1112@0.0.2048.1112" timestamp="1587114064816" />
+    <state x="446" y="193" key="Vcs.Push.Dialog.v2" timestamp="1582470331001">
+      <screen x="0" y="0" width="1707" height="920" />
+    </state>
+    <state x="446" y="193" key="Vcs.Push.Dialog.v2/0.0.1707.920@0.0.1707.920" timestamp="1582470331001" />
+  </component>
+</project>
