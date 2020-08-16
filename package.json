@@ -15,7 +15,7 @@
     "package": "electron-forge package",
     "make": "electron-forge make"
   },
-  "repository": "https://gogs.ant-dev.space/anton/remote-server",
+  "repository": "https://github.com/AntonMenshickov/remote-server",
   "author": "Anton Menshickov",
   "license": "MIT",
   "devDependencies": {
