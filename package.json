@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "keyboard-layout": "^2.0.16",
+    "qrcode": "^1.4.4",
     "robotjs": "^0.6.0",
     "ws": "^7.2.0"
   },

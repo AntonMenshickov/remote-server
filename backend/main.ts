@@ -67,6 +67,7 @@ ipcMain.on('variable-request', function (event, arg) {
 ipcMain.on('variable-change', function (event, arg) {
     arg.host = getHost();
     params = Object.assign(arg);
+    event.sender.send('variable-reply', params);
     restartIfCan();
 });
 
@@ -107,7 +108,7 @@ function createWindow() {
     const image = nativeImage.createFromDataURL('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAPkSURBVHhe7Zq7b9NAHMe/eaegpOVVdUA8KoYKhEAsMPAYkBADCw8JsbCwIiEGBv4CBibEzAALQiqwMCAeAyoDDCAQAnWAFphQgZI2ok2cxOH3vZxNWvqIHWOD7Y90ucvdOfb367vf2bETTQERJqnzyNL5CCiNAC/2A3UpJ1pVruC2hUFg/XlJZ1t1AdK5AY/kyNNpGTNZXeES7q5piJENINcH7PuhG4LB/ymQECOTOSC7QkwoASOrdEMw+D8FSEZSSgwgxgwwdDWw6RDMKvD6EDD5sGWCWQXyG4E9H3SjvwSzCux4ANR0OSExpTymv/hP8MsgY4L/Y9Am8tcBsQE6jyyxATr3nyKTXAOo1KoKggWvA4bvjePm3TGMvi+hXm+qQO05XPvbqXzSBe+gsnQ6gaEtfTh1dBAnjmzWLb/5w4BDJ+/jy9dZFFZm1MaJv6LePyiPJ7H8s4aBdT14cOuwbmkxxwCKnyob6MnLTU8Ima3U0VvIzjHBjgEc9jzzYRVPqI0aqdXCNoBznsM+7FAjtVrYBoy+n1JzPuxQI7Va2AbU6+Z/H/A6gRqp1cI2wLF2iZ1Jo4bUbEUlltW6M5+g+i1Bu1Z7FRjaO4yBfv0nxXLIJinDwMSu7ZjevEFVFcc/o//lGzSycntr7SGofsvwZWIGo09PqLI9ApyQrNXVQUwNbpAzYKjEMuvYZhFUPye4MiDRaGBadpyqGurfMSaWWcc2i6D6OcGVAWHClQHNVArFsc9o5LLqzxwmllnHNoug+jnBlQFmJq0CT6/s2JTgw8Qy69hmEVQ/J7hbBYhsxsBjzT2eAXUQ8yNxUP2WoOtVIEzE1wHq0yEcgjwIr9Ztr/s5wZUBnH9ertte93NC5GOAKwMYeb1ct73u5wRXBnDZYeDxat32up8T4usA9ekG2aGZzaDRk1eJ5QUPIqh+HRL5IOh+CixCpZbFdKUAs+mtt8mEiWK+jHzG0DXuaZ8CnhpA8bs3vcKV0xcAuTBTYdoLOMJF97kbl/H8486uTfhrBkyU1+DdpT3ihKg33UXlRUnKlV7ewNaLz9Bf+K4r3RHfDLVhG9AaB93BOXru+mUgJ0O0d0YqPEr8LflN/jb30S3tWu0psO3AHaxdnZMVxf2SQv71IEi53yarePvkmPpuG3D8zGOZG7PIZMI9K2o1U2JdD25fO6i+22r5/JyPkMMONVKrhW0AXx7g83M+Qg4r1EaN7S9KzBnvfG7O5+eTpaoaKnp2/NdQA7VQ0/x3A4gdA9rx5RUZH6Ayx6/IRI1wh/wOiA3QeWSJDdB5ZIkN0HlkiQ3QeWSJDdB5ZIkN0HlEAX4BQ+WfH5K4ldcAAAAASUVORK5CYII=');
     image.setTemplateImage(true);
     win = new BrowserWindow({
-        width: 320,
+        width: 460,
         height: 250,
         webPreferences: {
             nodeIntegration: true
@@ -121,7 +122,7 @@ function createWindow() {
     }))
     win.loadFile(`./index.html`)
     win.on('close', () => win = null);
-    win.setMenu(null);
+    // win.setMenu(null);
 }
 
 function updateTray() {

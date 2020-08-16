@@ -34,6 +34,9 @@ export const onMouseEvent = function (e: IMouseEvent) {
     e.buttons.forEach(b => {
         robot.mouseToggle(MouseButtonState[b.state], MouseButton[b.button]);
     });
-    robot.moveMouse(positionX, positionY);
-    robot.scrollMouse(0, e.scroll);
+    if (e.scroll) {
+        robot.scrollMouse(0, e.scroll);
+    } else {
+        robot.moveMouse(positionX, positionY);
+    }
 };
