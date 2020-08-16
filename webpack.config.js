@@ -43,8 +43,6 @@ const backend = {
     plugins: [
         new CopyPlugin({
             patterns: [
-                { from: 'backend/app_icon.png', to: 'app_icon.png' },
-                { from: 'backend/tray-icon.png', to: 'tray-icon.png' },
                 { from: 'index.html', to: 'index.html' }
             ],
         }),

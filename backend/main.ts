@@ -43,6 +43,7 @@ enum EventType {
 }
 
 let tray = null;
+let contextMenu = null;
 let win = null;
 let wss = null;
 let server = null;
@@ -91,6 +92,7 @@ function onTrayClick(menuItem, browserWindow, event) {
     if (menuItem.label === 'enabled') {
         params.enabled = !params.enabled
         win && win.webContents.send('variable-reply', { enabled: params.enabled });
+        updateTray();
         restartIfCan();
     }
     if (menuItem.label === 'exit') {
@@ -122,14 +124,19 @@ function createWindow() {
     win.setMenu(null);
 }
 
-function createTray() {
-    tray = new Tray(nativeImage.createFromDataURL('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAA8AXHiAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAM3SURBVHgB7d2BTRtXGMDx71AHYASyARvUnYBuEGeChgmgE9SdoGaDdIK6G6QT5DaoN3C+Z5vIAmMc331KIv9+0uPAZ5NT9Nd7cId1EQAAAAAAAAAAAAAAAMAw3TFPWq1Wl7m5znGTY5LjKsdlcA6WOT5ux79d13045kUHw9oG9T7HbyEkNvocDznmGVn/0pNeDCujakHdhaDYr89xn3E97Nu5N6yMahabWQpeM8u4bp8++CysjGqem7cBx2vL4rvdBy52v9jOVKLia02znT92H/gyY+WOaW7+Cjjdbc5cbXLahJVRXeXmn9icRoBTtVMTbzKu5eNSOA1RMVw7g7D+pe9xxvoUwmIc61nrIqP6NUTFeNZXadpS+HPAuG5aWNcB45p0uRT+Hy7bMK5lC2sVMLKLgALCooSwKCEsSgiLEsKihLAo8VPUWWzHKSbb8ZL7ON39gX2LcMzjWNW5ixO11x76xjGAYz7+mIewFFJCWJQQFiWERQlhUUJYlBAWJYRFCWFRQliUEBYlhEUJYVGi8s9mJgMu6k8O7RxyRf+1f9cxj8P7CilhKaSEsCghLEoIixLCooSwKFEZVrsdxknilbdKdQM45uOPeQgzFiWERQlhUUJYlBAWJYRFCWFRQliUEBYlhEUJYVFCWJQQFiWERQnv0qGEGYsSwqKEsCghLEoIixLCosQ53qTpR3R/YN8i3KTp6GO6O/SN48x8q//nISyFlBAWJYRFCWFRQliUEBYlhEUJYVFCWJQQFiWERQlhUUJYlHCTph+fmzRxPiyFlBAWJYRFCWFRQliUEBYlhEWJFtYyYFzLFlYfMK6PLaxFwLjWYf0dMK5Fu1Z4mZ98ynEZMFzfdd2bi/zQfnifBYxj3j6s7zds1mIkfY5fcrLq1+extrPW7wHDtBuf9+2TLydI84G2HFoSOdUsG3p4/KJ7ujeXxXlu3gYcb55Rvdt94NklnXzCNMxcHG/2NKpm77XCfOJtbtqT+4D92s/l77etPNMdemUui1exWRanOa4CNkG1Fe3P7S99ex0Ma1dGdhObd3Vcb4dTE+ehxdPH5tLfhxz/HQoKAAAAAAAAAAAAAAAAgO/aZ61W23X3F3rhAAAAAElFTkSuQmCC'))
-    const contextMenu = Menu.buildFromTemplate([
+function updateTray() {
+    if (tray === null) {
+        tray = new Tray(nativeImage.createFromDataURL('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAA8AXHiAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAM3SURBVHgB7d2BTRtXGMDx71AHYASyARvUnYBuEGeChgmgE9SdoGaDdIK6G6QT5DaoN3C+Z5vIAmMc331KIv9+0uPAZ5NT9Nd7cId1EQAAAAAAAAAAAAAAAMAw3TFPWq1Wl7m5znGTY5LjKsdlcA6WOT5ux79d13045kUHw9oG9T7HbyEkNvocDznmGVn/0pNeDCujakHdhaDYr89xn3E97Nu5N6yMahabWQpeM8u4bp8++CysjGqem7cBx2vL4rvdBy52v9jOVKLia02znT92H/gyY+WOaW7+Cjjdbc5cbXLahJVRXeXmn9icRoBTtVMTbzKu5eNSOA1RMVw7g7D+pe9xxvoUwmIc61nrIqP6NUTFeNZXadpS+HPAuG5aWNcB45p0uRT+Hy7bMK5lC2sVMLKLgALCooSwKCEsSgiLEsKihLAo8VPUWWzHKSbb8ZL7ON39gX2LcMzjWNW5ixO11x76xjGAYz7+mIewFFJCWJQQFiWERQlhUUJYlBAWJYRFCWFRQliUEBYlhEUJYVGi8s9mJgMu6k8O7RxyRf+1f9cxj8P7CilhKaSEsCghLEoIixLCooSwKFEZVrsdxknilbdKdQM45uOPeQgzFiWERQlhUUJYlBAWJYRFCWFRQliUEBYlhEUJYVFCWJQQFiWERQnv0qGEGYsSwqKEsCghLEoIixLCosQ53qTpR3R/YN8i3KTp6GO6O/SN48x8q//nISyFlBAWJYRFCWFRQliUEBYlhEUJYVFCWJQQFiWERQlhUUJYlHCTph+fmzRxPiyFlBAWJYRFCWFRQliUEBYlhEWJFtYyYFzLFlYfMK6PLaxFwLjWYf0dMK5Fu1Z4mZ98ynEZMFzfdd2bi/zQfnifBYxj3j6s7zds1mIkfY5fcrLq1+extrPW7wHDtBuf9+2TLydI84G2HFoSOdUsG3p4/KJ7ujeXxXlu3gYcb55Rvdt94NklnXzCNMxcHG/2NKpm77XCfOJtbtqT+4D92s/l77etPNMdemUui1exWRanOa4CNkG1Fe3P7S99ex0Ma1dGdhObd3Vcb4dTE+ehxdPH5tLfhxz/HQoKAAAAAAAAAAAAAAAAgO/aZ61W23X3F3rhAAAAAElFTkSuQmCC'));
+        tray.setToolTip('Remote server');
+    }
+    if (contextMenu !== null) {
+        contextMenu.destroy();
+    }
+    contextMenu = Menu.buildFromTemplate([
         { label: 'open', type: 'normal', click: onTrayClick },
         { label: 'enabled', type: 'checkbox', checked: params.enabled, click: onTrayClick },
         { label: 'exit', type: 'normal', click: onTrayClick }
     ])
-    tray.setToolTip('Remote server')
     tray.setContextMenu(contextMenu);
 }
 
@@ -182,7 +189,7 @@ function startServer() {
 }
 
 app.on('ready', () => {
-    createTray();
+    updateTray();
     restartIfCan();
 })
 

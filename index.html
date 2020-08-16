@@ -25,7 +25,7 @@
       const passwordEl = document.getElementById("params.password");
       enabledEl.checked = params.enabled;
       portEl.value = params.port;
-      hostEl.value = params.host;
+      hostEl.value = `ws://${params.host}:${params.port}`;
       passwordEl.value = params.password || '';
     }
 
@@ -43,7 +43,7 @@
 
     ipcRenderer.on('variable-reply', function (event, args) {
       console.log(args);
-      params = Object.assign(args);
+      params = Object.assign(params, args);
       updatebody();
     });
 
