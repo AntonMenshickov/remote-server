@@ -12,6 +12,8 @@ const outPath = path.join(__dirname, './build');
 
 const nodeExternals = require('webpack-node-externals');
 const WebpackShellPlugin = require('webpack-shell-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
+
 
 const backend = {
     entry: './backend/main.ts',
@@ -39,9 +41,17 @@ const backend = {
     externals: [nodeExternals()],
     watch: !isProduction,
     plugins: [
+        new CopyPlugin({
+            patterns: [
+                { from: 'backend/app_icon.png', to: 'app_icon.png' },
+                { from: 'backend/tray-icon.png', to: 'tray-icon.png' },
+                { from: 'index.html', to: 'index.html' }
+            ],
+        }),
         new WebpackShellPlugin({
             onBuildEnd: ['npm run electron:start']
         })
+
     ]
 };
 

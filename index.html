@@ -1,19 +1,85 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <title>Hello World!</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    We are using Node.js <span id="node-version"></span>,
-    Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>.
 
-    <!-- You can also require other files to run in this process -->
-    <script src="./renderer.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <title>Remote</title>
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+</head>
+
+<body>
+  <script>
+    const electron = require('electron');
+    const { ipcRenderer } = electron;
+
+    let params = {
+      enabled: null,
+      host: null,
+      port: null,
+      password: null
+    }
+    function updatebody() {
+      const enabledEl = document.getElementById("params.enabled");
+      const portEl = document.getElementById("params.port");
+      const hostEl = document.getElementById("params.host");
+      const passwordEl = document.getElementById("params.password");
+      enabledEl.checked = params.enabled;
+      portEl.value = params.port;
+      hostEl.value = params.host;
+      passwordEl.value = params.password || '';
+    }
+
+    function updateProps() {
+      const enabledEl = document.getElementById("params.enabled");
+      const portEl = document.getElementById("params.port");
+      const passwordEl = document.getElementById("params.password");
+      electron.ipcRenderer.send('variable-change', {
+        enabled: enabledEl.checked,
+        port: portEl.value,
+        password: passwordEl.value
+      });
+    }
+    electron.ipcRenderer.send('variable-request', ['enabled', 'port', 'password', 'host']);
+
+    ipcRenderer.on('variable-reply', function (event, args) {
+      console.log(args);
+      params = Object.assign(args);
+      updatebody();
+    });
+
+  </script>
+  <div id="content">
+    <div>
+      <span>Server enabled: </span>
+      <input type="checkbox" id="params.enabled" />
+    </div>
+    <div>
+      <span>Server host: </span>
+      <input type="text" readonly placeholder="0.0.0.0" id="params.host" />
+    </div>
+    <div>
+      <span>Server port: </span>
+      <input type="number" placeholder="3000" id="params.port" />
+    </div>
+    <div>
+      <span>Server password: </span>
+      <input type="text" placeholder="No password set" id="params.password" />
+    </div>
+    <div>
+      <button onclick="updateProps()">Save</button>
+    </div>
+  </div>
+  <style>
+    #content div {
+      display: flex;
+      flex-direction: row;
+      margin: 10px 0;
+    }
+
+    #content div span {
+      width: 120px;
+    }
+  </style>
+</body>
+
 </html>

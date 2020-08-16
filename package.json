@@ -5,18 +5,29 @@
   "description": "A remote server for control keyboard and mouse",
   "main": "build/main.js",
   "scripts": {
-    "start": "webpack -p --progress --colors",
-    "electron:start": "electron .",
+    "prepare": "npx lock-verify",
+    "start": "electron-forge start",
+    "electron:start": "electron build/main.js",
     "dev": "webpack --hot --watch -nd",
     "run:dev": "nodemon build/main.js -d 3",
-    "build": "webpack -p --progress --colors"
+    "build": "webpack -p --progress --colors",
+    "rebuild": "npm rebuild --runtime=electron --target=9.2.0 --disturl=https://atom.io/download/atom-shell --abi=59",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
   "repository": "https://gogs.ant-dev.space/anton/remote-server",
   "author": "Anton Menshickov",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^8.0.1",
-    "nodemon": "^1.19.3",
+    "@electron-forge/cli": "^6.0.0-beta.52",
+    "@electron-forge/maker-deb": "^6.0.0-beta.52",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.52",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.52",
+    "@electron-forge/maker-zip": "^6.0.0-beta.52",
+    "copy-webpack-plugin": "^6.0.3",
+    "electron": "^9.2.0",
+    "electron-rebuild": "^1.11.0",
+    "nodemon": "^2.0.4",
     "ts-loader": "^5.4.5",
     "typescript": "^3.6.3",
     "webpack": "^4.41.0",
@@ -29,5 +40,37 @@
     "keyboard-layout": "^2.0.16",
     "robotjs": "^0.6.0",
     "ws": "^7.2.0"
+  },
+  "optionalDependencies": {
+    "fsevents": "^1.2.11"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "asar": true
+      },
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "remote_server"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
   }
 }
