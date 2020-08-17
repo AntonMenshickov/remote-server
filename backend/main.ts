@@ -122,7 +122,7 @@ function createWindow() {
     }))
     win.loadFile(`./index.html`)
     win.on('close', () => win = null);
-    // win.setMenu(null);
+    win.setMenu(null);
 }
 
 function updateTray() {
